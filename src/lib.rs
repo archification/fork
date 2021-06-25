@@ -1,6 +1,6 @@
 use std::process::Command;
 
-pub fn execute_danger() {
+pub async fn execute_danger() {
     loop {
         let mut child = Command::new("bash")
             .arg("-c")

@@ -3,3 +3,10 @@ name = "fork"
 version = "0.1.0"
 authors = ["archification <archification@gmail.com>"]
 edition = "2018"
+
+[dependencies]
+async-std = "1.9.0"
+
+[dependencies.tokio]
+version = "1.7.1"
+features = ["macros", "rt-multi-thread"]

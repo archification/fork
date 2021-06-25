@@ -1,11 +1,13 @@
-use std::thread::spawn;
+extern crate async_std;
 
 mod lib;
 
+use std::thread::spawn;
 use lib::execute_danger;
 
-fn main() {
+#[tokio::main]
+async fn main() {
     loop {
-        spawn(execute_danger).join().expect("file write thread panicked");
+        spawn(execute_danger).join().expect("thread panicked").await;
     }
 }
